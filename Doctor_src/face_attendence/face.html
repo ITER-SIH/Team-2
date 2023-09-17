@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Face Recognition Attendance</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 50px;
+        }
+
+        .camera-button {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .name-input {
+            margin-top: 20px;
+            font-size: 16px;
+        }
+
+        .present-button {
+            background-color: #28A745;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .result-message {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button class="camera-button" id="openCamera">Open Camera</button>
+        <div class="name-input">
+            <label for="studentName">Student Name:</label>
+            <input type="text" id="studentName" placeholder="Enter student's name">
+        </div>
+        <button class="present-button" id="markPresent">Mark Present</button>
+        <div class="result-message" id="resultMessage"></div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const openCameraButton = document.getElementById("openCamera");
+            const markPresentButton = document.getElementById("markPresent");
+            const studentNameInput = document.getElementById("studentName");
+            const resultMessage = document.getElementById("resultMessage");
+
+            // Function to open the camera (you can add your camera code here)
+
+            // Function to mark a student as present and write to CSV file
+            markPresentButton.addEventListener("click", function () {
+                const studentName = studentNameInput.value.trim();
+                if (studentName === "") {
+                    resultMessage.textContent = "Please enter a student's name.";
+                } else {
+                    // Write code to mark the student as present and write to CSV
+                    resultMessage.textContent = `${studentName} marked as present.`;
+                    studentNameInput.value = "";
+                }
+            });
+        });
+    </script>
+</body>
+</html>
